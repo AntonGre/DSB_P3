@@ -2,6 +2,8 @@ clc;
 clear; 
 close all;
 
+addpath('C:\Users\anton\Desktop\DSB_P3');
+import firBlur.*
 c = imread('untitled.jpg');
 figure();
 imshow(c);
@@ -36,6 +38,10 @@ end
 
 figure();
 imshow(X_1)
+
+X_11 = firBlur(x,LP);
+figure();
+imshow(X_11)
 
 %% Billedet skarpes med fir filter
 X_2 = zeros(x_size,y_size,z_size);
@@ -80,16 +86,18 @@ for i = 1:x_size
    X_3(i,1:end,1)=filtfilt(LP_b,LP_a,x(i,1:end,1));
 end
 
-% filter på den Rød farve
+% filter på den grøn farve
 for i = 1:x_size
    X_3(i,1:end,2)=filtfilt(LP_b,LP_a,x(i,1:end,2));
 end
 
-% filter på den Rød farve
+% filter på den blå farve
 for i = 1:x_size
    X_3(i,1:end,3)=filtfilt(LP_b,LP_a,x(i,1:end,3));
 end
 
 figure()
 imshow(X_3)
+
+%% skærping med iir filter 
 

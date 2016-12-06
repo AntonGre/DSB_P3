@@ -1,7 +1,7 @@
 
 % firblur funktion returnere blurre et billede A af parameteren picture,
 % Wn er knækværdien for lavpas fir filter som picture bliver kørt igennem
-function A = firBlur(picture,Wn)
+function A = firSmooth(picture,Wn)
 
 b = fir1(100,Wn);
 A = im2double(picture);

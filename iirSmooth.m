@@ -1,7 +1,7 @@
 
 % blures med bessel som er iir filter, som bliver en approximiation af 
 % gaussingfilter.
-function A = iirBlur(picture,n)
+function A = iirSmooth(picture,n)
 
 A = picture;
 [numd,dend] = besself(n,10000);

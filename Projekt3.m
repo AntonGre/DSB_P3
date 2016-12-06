@@ -2,9 +2,9 @@ clc;
 clear; 
 close all;
 
-import firBlur.*
+import firSmooth.*
 import firSharp.*
-import iirBlur.*
+import iirSmooth.*
 
 c = imread('Fruitball.jpg');
 figure();
@@ -23,7 +23,7 @@ X_1 = zeros(x_size,y_size,z_size);
 
 %% Billedet blurres med fir filter
 
-X_11 = firBlur(c,0.2);
+X_11 = firSmooth(c,0.2);
 figure();
 imshow(X_11)
 %% Billedet skarpes med fir filter
@@ -50,7 +50,7 @@ imshow(D)
 % imshow(X_3)
 
 
-V = iirBlur(x,25);
+V = iirSmooth(x,25);
 figure()
 imshow(V)
 %% skærping med iir filter 

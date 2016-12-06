@@ -6,7 +6,7 @@ import firBlur.*
 import firSharp.*
 import iirBlur.*
 
-c = imread('untitled.jpg');
+c = imread('Fruitball.jpg');
 figure();
 imshow(c);
 x = im2double(c);
@@ -30,7 +30,7 @@ imshow(X_11)
 
 
 
-D = firSharp(X_11);
+D = firSharp(x);
 figure();
 title('med firsharp')
 imshow(D)
@@ -38,16 +38,16 @@ imshow(D)
 %% Billedet blures med iir filter
 
 %Blures med gaussingfilter lidt snyd
-X_3 = zeros(x_size,y_size,z_size);
-sigma = 5;
+% X_3 = zeros(x_size,y_size,z_size);
+% sigma = 5;
+% 
+% X_3(:,:,1) = imgaussfilt(x(:,:,1),sigma);
+% X_3(:,:,2) = imgaussfilt(x(:,:,2),sigma);
+% X_3(:,:,3) = imgaussfilt(x(:,:,3),sigma);
 
-X_3(:,:,1) = imgaussfilt(x(:,:,1),sigma);
-X_3(:,:,2) = imgaussfilt(x(:,:,2),sigma);
-X_3(:,:,3) = imgaussfilt(x(:,:,3),sigma);
 
-
-figure();
-imshow(X_3)
+% figure();
+% imshow(X_3)
 
 
 V = iirBlur(x,25);
@@ -55,28 +55,28 @@ figure()
 imshow(V)
 %% skærping med iir filter 
 
-X_21 = x;
-[numd,dend] = bessely(30,10000);
-[LP_b,LP_a] = bilinear(numd,dend,10000);
-x_size = size(picture(1:end,1,1));
-
-% filter på den Rød farve
-for i = 1:x_size
-   X_21(i,1:end,1)=filtfilt(LP_b,LP_a,x(i,1:end,1));
-end
-
-% filter på den grøn farve
-for i = 1:x_size
-   X_21(i,1:end,2)=filtfilt(LP_b,LP_a,x(i,1:end,2));
-end
-
-% filter på den blå farve
-for i = 1:x_size
-   X_21(i,1:end,3)=filtfilt(LP_b,LP_a,x(i,1:end,3));
-end
-
-figure()
-imshow(X_21)
+% X_21 = x;
+% [numd,dend] = bessely(30,10000);
+% [LP_b,LP_a] = bilinear(numd,dend,10000);
+% x_size = size(picture(1:end,1,1));
+% 
+% % filter på den Rød farve
+% for i = 1:x_size
+%    X_21(i,1:end,1)=filtfilt(LP_b,LP_a,x(i,1:end,1));
+% end
+% 
+% % filter på den grøn farve
+% for i = 1:x_size
+%    X_21(i,1:end,2)=filtfilt(LP_b,LP_a,x(i,1:end,2));
+% end
+% 
+% % filter på den blå farve
+% for i = 1:x_size
+%    X_21(i,1:end,3)=filtfilt(LP_b,LP_a,x(i,1:end,3));
+% end
+% 
+% figure()
+% imshow(X_21)
 
 
 

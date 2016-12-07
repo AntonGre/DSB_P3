@@ -9,15 +9,7 @@ import iirSmooth.*
 c = imread('Fruitball.jpg');
 figure();
 imshow(c);
-x = im2double(c);
-[x_size,y_size,z_size] = size(x);
 
-X_1 = zeros(x_size,y_size,z_size);
-
-
-
-% filtfilt fir funktionen bliver brugt på således der ikke skabes
-% noget faseforskydning på billedet
 
 %% Billedet blurres med fir filter
 

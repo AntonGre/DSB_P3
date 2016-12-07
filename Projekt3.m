@@ -12,8 +12,6 @@ imshow(c);
 x = im2double(c);
 [x_size,y_size,z_size] = size(x);
 
-LP = fir1(100,0.20);
-HP = fir1(100,0.0002,'high');
 X_1 = zeros(x_size,y_size,z_size);
 
 
@@ -29,10 +27,8 @@ imshow(X_11)
 %% Billedet skarpes med fir filter
 
 
-
 D = firSharp(x);
 figure();
-title('med firsharp')
 imshow(D)
 
 %% Billedet blures med iir filter

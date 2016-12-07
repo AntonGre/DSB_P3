@@ -4,6 +4,8 @@
 function A = firSmooth(picture,Wn)
 
 b = fir1(100,Wn);
+figure()
+freqz(b);
 A = im2double(picture);
 x_size = size(picture(1:end,1,1));
 

@@ -30,26 +30,11 @@ V = iirSmooth(c,25);
 figure()
 imshow(V)
 
-% Påføre salt pepper på billedet
-c_salt = imnoise(c,'salt & pepper');
-figure()
-imshow(c_salt)
-
-% fjerner det med smooth
-V1 = iirSmooth(c_salt,25);
-figure()
-imshow(V1)
+% Påføre salt pe
 
 
 
 %% skærping med iir filter 
-
-I = rgb2gray(c);
-BW1 = edge(I,'canny');
-
-figure()
-imshow(BW1)
-
 
 % x = im2double(c);
 % YCBCR = rgb2ycbcr(im2double(c));

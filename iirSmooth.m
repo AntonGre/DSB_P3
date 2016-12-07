@@ -16,16 +16,16 @@ freqz(LP_b,LP_a) %%plotter Iir filter
 
 % filter på den Rød farve
 for i = 1:x_size
-   A(i,1:end,1)=filtfilt(LP_b,LP_a,picture(i,1:end,1));
+   A(i,1:end,1)=filtfilt(LP_b,LP_a,A(i,1:end,1));
 end
 
 % filter på den grøn farve
 for i = 1:x_size
-   A(i,1:end,2)=filtfilt(LP_b,LP_a,picture(i,1:end,2));
+   A(i,1:end,2)=filtfilt(LP_b,LP_a,A(i,1:end,2));
 end
 
 % filter på den blå farve
 for i = 1:x_size
-   A(i,1:end,3)=filtfilt(LP_b,LP_a,picture(i,1:end,3));
+   A(i,1:end,3)=filtfilt(LP_b,LP_a,A(i,1:end,3));
 end
 end

@@ -25,22 +25,13 @@ imshow(D)
 
 %% Billedet blures med iir filter
 
-%Blures med gaussingfilter lidt snyd
-% X_3 = zeros(x_size,y_size,z_size);
-% sigma = 5;
-% 
-% X_3(:,:,1) = imgaussfilt(x(:,:,1),sigma);
-% X_3(:,:,2) = imgaussfilt(x(:,:,2),sigma);
-% X_3(:,:,3) = imgaussfilt(x(:,:,3),sigma);
-
-
-% figure();
-% imshow(X_3)
-
 
 V = iirSmooth(x,25);
 figure()
 imshow(V)
+
+
+
 %% skærping med iir filter 
 
 % X_21 = x;

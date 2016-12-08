@@ -12,10 +12,18 @@ imshow(c);
 
 
 %% Billedet blurres med fir filter
+c_salt = imnoise(c,'salt & pepper');
+figure()
+imshow(c_salt)
 
-X_11 = firSmooth(c,0.2);
+X_11 = firSmooth(c,0.1);
 figure();
 imshow(X_11)
+
+X_1C = firSmooth(c_salt,0.1);
+figure();
+imshow(X_1C)
+
 %% Billedet skarpes med fir filter
 
 
@@ -42,43 +50,3 @@ imshow(V1)
 
 
 
-%% skærping med iir filter 
-
-I = rgb2gray(c);
-BW1 = edge(I,'canny');
-
-figure()
-imshow(BW1)
-
-
-% x = im2double(c);
-% YCBCR = rgb2ycbcr(im2double(c));
-% [b,a] = ellip(6,3,50,0.80,'high');
-% %[numd,dend] = bessely(30,10000);
-% [b,a] = bilinear(b,a,10000);
-% x_size = size(c(1:end,1,1));
-% 
-% % filter på den Rød farve
-% for i = 1:x_size
-%    YCBCR(i,1:end,1)=filtfilt(b,a,YCBCR(i,1:end,1));
-% end
-% 
-% % % filter på den grøn farve
-% % for i = 1:x_size
-% %    x(i,1:end,2)=filtfilt(b,a,x(i,1:end,2));
-% % end
-% % 
-% % % filter på den blå farve
-% % for i = 1:x_size
-% %    x(i,1:end,3)=filtfilt(b,a,x(i,1:end,3));
-% % end
-% 
-% x = ycbcr2rgb(YCBCR);
-% figure()
-% imshow(x)
-
-
-
-%% Funktioner 
-
-%% b

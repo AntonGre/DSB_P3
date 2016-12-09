@@ -12,6 +12,11 @@ imshow(c);
 
 
 %% Billedet blurres med fir filter
+
+BV = firSmooth(c,0.1);
+figure()
+imshow(BV)
+
 c_salt = imnoise(c,'salt & pepper');
 figure()
 imshow(c_salt)

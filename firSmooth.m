@@ -5,8 +5,8 @@ function A = firSmooth(picture,Wn)
 
 b = fir1(100,Wn); %Laver lavpas filter, med orden 100 og vinkelfrekvense fra parameter
 
-figure()
-freqz(b); %Fremviser filter
+%figure()
+%freqz(b); %Fremviser filter
 
 A = im2double(picture); %Konvert billede om til bedre præcision.
 x_size = size(picture(1:end,1,1)); %Gemmer størrelse på X-aksen
